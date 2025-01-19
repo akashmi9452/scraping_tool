@@ -19,18 +19,24 @@ This repository contains a Python-based web scraping tool built using `FastAPI`,
    git clone https://github.com/akashmi9452/scraping-tool.git
    cd scraping-tool
 2. Create and activate a Python virtual environment:
+    ```bash
     python3 -m venv scraping-env
     source scraping-env/bin/activate
 3. Install the dependencies:
+    ```bash
     pip install fastapi uvicorn requests beautifulsoup4 redis
 4. Start Redis (macOS example):
+    ```bash
     brew services start redis
 
 ## Running the API
 
 1. Start the FastAPI server:
+    ```bash
     uvicorn main:app --reload
-2. The API will be available at http://127.0.0.1:8000.
+2. The API will be available at 
+    ```bash
+    http://127.0.0.1:8000.
 
 ## Endpoints
 
@@ -38,12 +44,15 @@ This repository contains a Python-based web scraping tool built using `FastAPI`,
     Endpoint: /scrape
     Method: POST
     Description: Initiates a scraping operation.
-    Request Body: {
+    Request Body: 
+    ```bash
+    {
         "url": "https://example.com/shop",
         "pages_limit": 5,
         "proxy": "http://yourproxy.com:port"
-        }
+    }
     Example curl Command:
+    ```bash
         curl -X POST "http://127.0.0.1:8000/scrape" \
         -H "Content-Type: application/json" \
         -d '{"url": "https://dentalstall.com/shop", "pages_limit": 5}'
